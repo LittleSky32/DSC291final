@@ -22,7 +22,11 @@ We utilized a Python script for LD Score Regression, available at the following 
 The S-LDSC analysis was conducted using GWAS summary statistics to analyze SNP heritability in Alzheimer's disease, focusing on individuals of European ancestry. The specific script used for this analysis can be found in the GitHub repository: [sldsc_bashcode.sh](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_bashcode.sh).
 
 ### Results and Visualization
-Significant heritability enrichments were observed in regulatory genomic elements, underscoring their crucial role in the epigenetic regulation of Alzheimer's disease. The results of the analysis are visualized in the figure provided in the repository. You can view and download the plot here: [Significant Heritability Enrichments](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_sig_plot.png).
+Significant heritability enrichments were observed in regulatory genomic elements, demonstrating the critical role of epigenetic regulation in Alzheimer's disease. These results are illustrated in the figure below, which supports potential epigenetic targets for therapeutic strategies:
+
+![Significant Heritability Enrichments](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_sig_plot.png)
+
+The script to generate this plot is available in the GitHub repository: [sldsc_res.R](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_res.R).
 
 
 
