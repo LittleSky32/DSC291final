@@ -21,7 +21,15 @@ This script [`make_seurat.R`](https://github.com/LittleSky32/DSC291final/blob/ma
 
 ### ATAC-seq Differential Accessibility Analysis
 
-This script [`atac_seq_DEG.R`](https://github.com/LittleSky32/DSC291final/blob/main/atac_seq_DEG.R) identifies differentially accessible regions (DARs) from scATAC-seq data. The ATAC-seq Seurat object is first preprocessed using Signac's standard normalization steps ((https://stuartlab.org/signac/articles/pbmc_vignette)), and differential accessibility is computed for AD versus Control in microglia. Annotated DARs are linked to genes using hg38 annotations, focusing on promoter-specific regions. Significant DARs are filtered based on an adjusted p-value < 0.05. The script further integrates DARs with GWAS summary statistics to map significant SNPs to regulatory regions and genes, which is only for internal checks of interest.
+This script [`atac_seq_DEG.R`](https://github.com/LittleSky32/DSC291final/blob/main/atac_seq_DEG.R) identifies differentially accessible regions (DARs) from scATAC-seq data. The ATAC-seq Seurat object is first preprocessed using Signac's standard normalization steps (https://stuartlab.org/signac/articles/pbmc_vignette), and differential accessibility is computed for AD versus Control in microglia. Annotated DARs are linked to genes using hg38 annotations, focusing on promoter-specific regions. Significant DARs are filtered based on an adjusted p-value < 0.05. The script further integrates DARs with GWAS summary statistics to map significant SNPs to regulatory regions and genes, which is only for internal checks of interest.
+
+## GWAS Gene Body Mapping
+
+This script [`GWAS_gene_body.R`](https://github.com/LittleSky32/DSC291final/blob/main/GWAS_gene_body.R) maps significant SNPs identified from GWAS summary statistics to genes located within gene bodies. Using positions of HapMap3 variants and a gene annotation file (obtained from HW2, original paper for HapMap3 could be located at (DOI: 10.1038/nature09298)), the script integrates GWAS-significant SNPs (p-value < 5e-8) with gene body annotations to identify genes potentially influenced by these SNPs. 
+
+Both the gene annotation file [`gene_annot.txt.gz`]() and the HapMap3 positions file [`GTEx_v8_genotype_EUR_HM3_exclude_dups.allchr.reorder.bim`]() can be found in the GitHub repository accompanying this analysis.
+
+
 
 
 ## S-LDSC Analysis
