@@ -23,22 +23,22 @@ This script [`make_seurat.R`](https://github.com/LittleSky32/DSC291final/blob/ma
 
 This script [`atac_seq_DEG.R`](https://github.com/LittleSky32/DSC291final/blob/main/atac_seq_DEG.R) identifies differentially accessible regions (DARs) from scATAC-seq data. The ATAC-seq Seurat object is first preprocessed using Signac's standard normalization steps (https://stuartlab.org/signac/articles/pbmc_vignette), and differential accessibility is computed for AD versus Control in microglia. Annotated DARs are linked to genes using hg38 annotations, focusing on promoter-specific regions. Significant DARs are filtered based on an adjusted p-value < 0.05. The script further integrates DARs with GWAS summary statistics to map significant SNPs to regulatory regions and genes, which is only for internal checks of interest.
 
-
 ### RNA-seq Differential Expression Analysis
 
-This script (`process_rna_deg.R`) identifies differentially expressed genes (DEGs) from scRNA-seq data. The Seurat object is preprocessed using standard steps form the Seurat vignette (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html), including quality control (removing cells with fewer than 200 or more than 2,500 features), normalization, feature selection, and principal component analysis (PCA). Differential expression analysis is then performed to identify DEGs between AD and Control microglia. Significant DEGs are filtered based on an adjusted p-value < 0.05 and an absolute log2 fold change > 0.25. The resulting list of DEGs is saved for downstream analyses.
+This script [`process_rna_deg.R`](https://github.com/LittleSky32/DSC291final/blob/main/rna_seq_DEG.R) identifies differentially expressed genes (DEGs) from scRNA-seq data. The Seurat object is preprocessed using standard steps form the Seurat vignette (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html), including quality control (removing cells with fewer than 200 or more than 2,500 features), normalization, feature selection, and principal component analysis (PCA). Differential expression analysis is then performed to identify DEGs between AD and Control microglia. Significant DEGs are filtered based on an adjusted p-value < 0.05 and an absolute log2 fold change > 0.25. The resulting list of DEGs is saved for downstream analyses.
 
+### Session Information
+Details about the session environment and package versions used for this analysis can be found at the end of this `README.md` file.
 
 ## GWAS Gene Body Mapping
 
 This script [`GWAS_gene_body.R`](https://github.com/LittleSky32/DSC291final/blob/main/GWAS_gene_body.R) maps significant SNPs identified from GWAS summary statistics to genes located within gene bodies. Using positions of HapMap3 variants and a gene annotation file (obtained from HW2, original paper for HapMap3 could be located at (DOI: 10.1038/nature09298)), the script integrates GWAS-significant SNPs (p-value < 5e-8) with gene body annotations to identify genes potentially influenced by these SNPs. 
 
-Both the gene annotation file [`gene_annot.txt.gz`]() and the HapMap3 positions file [`GTEx_v8_genotype_EUR_HM3_exclude_dups.allchr.reorder.bim`]() can be found in the GitHub repository accompanying this analysis.
-
+Both the gene annotation file [`gene_annot.txt.gz`](https://github.com/LittleSky32/DSC291final/blob/main/gene_annot.txt.gz) and the zip-compressed HapMap3 positions file [`GTEx_v8_genotype_EUR_HM3_exclude_dups.allchr.reorder.bim.zip`](https://github.com/LittleSky32/DSC291final/blob/main/GTEx_v8_genotype_EUR_HM3_exclude_dups.allchr.reorder.bim.zip) can be found in the GitHub repository accompanying this analysis.
 
 ## DEG Overlapping Analysis
 
-This script (`deg_overlap_analysis.R`) performs an overlap analysis to compare differentially expressed genes (DEGs) identified from scRNA-seq data with genes mapped from scATAC-seq DARs, promoter regions. Additionally, it visualizes the overlaps using Venn diagrams and bar charts.
+This script [`deg_overlap_analysis.R`](https://github.com/LittleSky32/DSC291final/blob/main/overlap_DEG.R) performs an overlap analysis to compare differentially expressed genes (DEGs) identified from scRNA-seq data with genes mapped from scATAC-seq DARs, promoter regions. Additionally, it visualizes the overlaps using Venn diagrams and bar charts.
 
 ## S-LDSC Analysis
 
@@ -54,9 +54,6 @@ Significant heritability enrichments were observed in regulatory genomic element
 ![Significant Heritability Enrichments](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_sig_plot.png)
 
 The script to generate this plot is available in the GitHub repository: [sldsc_res.R](https://github.com/LittleSky32/DSC291final/blob/main/sldsc_res.R).
-
-### Session Information
-Details about the session environment and package versions used for this analysis can be found at the end of this `README.md` file.
 
 ## Important Session Information for R
 
