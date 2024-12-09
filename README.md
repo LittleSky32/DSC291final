@@ -13,6 +13,17 @@ effects of single nucleotide polymorphisms (SNPs) located within gene bodies. By
 these effects, we aim to elucidate AD-associated regulatory mechanisms and identify potential 
 therapeutic targets. 
 
+## scRNA-seq Differential Expression Analysis and scATAC-seq Differential Accessibility Analysis
+
+### scRNA-seq and scATAC-seq processing
+
+This script [`make_seurat.R`](https://github.com/LittleSky32/DSC291final/blob/main/create_seurat.R) preprocesses scRNA-seq and scATAC-seq data to generate Seurat objects for downstream analysis. The scRNA-seq data is loaded as a gene-by-cell matrix, and the scATAC-seq data is loaded as a peak-by-cell matrix. Metadata is integrated to include essential information such as cell type and diagnosis (AD or Control). The processed Seurat objects are saved as `ad_rna_seurat.rds` and `ad_atac_seurat.rds`, ready for further analysis.
+
+### ATAC-seq Differential Accessibility Analysis
+
+This script [`atac_seq_DEG.R`](https://github.com/LittleSky32/DSC291final/blob/main/atac_seq_DEG.R) identifies differentially accessible regions (DARs) from scATAC-seq data. The ATAC-seq Seurat object is first preprocessed using Signac's standard normalization steps ((https://stuartlab.org/signac/articles/pbmc_vignette)), and differential accessibility is computed for AD versus Control in microglia. Annotated DARs are linked to genes using hg38 annotations, focusing on promoter-specific regions. Significant DARs are filtered based on an adjusted p-value < 0.05. The script further integrates DARs with GWAS summary statistics to map significant SNPs to regulatory regions and genes, which is only for internal checks of interest.
+
+
 ## S-LDSC Analysis
 
 ### Software Used
